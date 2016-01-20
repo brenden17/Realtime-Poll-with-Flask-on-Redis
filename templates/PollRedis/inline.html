@@ -1,0 +1,34 @@
+<div id="poll" class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{ pb.title }}</div>
+  <div class="panel-body">
+    <p>{{ pb.description }}</p>
+  </div>
+  <form role="form">
+    <ul class="list-group">
+      {% for item, caption in pb.items %}
+      <li class="list-group-item">
+          <label><input type="radio" name="item" value="{{ item }}" {% if loop.first %}checked {% endif %}> {{ caption }}</label>
+      </li>
+      {% endfor %}
+    </ul>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+<script>
+$("#poll form").submit(function(event){
+  event.preventDefault();
+  var item = $('input:radio[name=item]:checked').val();
+  
+  $.ajax({
+    type: "POST",
+    url: "/poll",
+    data: {item:item, name:"{{ pb.poll_name }}"},
+    datatype:'json',
+    success: function(data) {
+      $(".panel").html("Thanks you very much.");  
+    }
+  });
+}); 
+</script>
+
+</div>

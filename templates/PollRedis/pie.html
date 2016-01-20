@@ -1,0 +1,22 @@
+{#  http://dimplejs.org/ #}
+
+<div id="chartContainer-{{ pr.poll_name }}">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script> 
+  <script type="text/javascript">
+  var svg = dimple.newSvg("#chartContainer-{{ pr.poll_name }}", {{ pr.width }}, {{ pr.height }});
+
+  var data = {{ pr.data|safe }};
+    
+  var chart = new dimple.chart(svg, data);
+  chart.setBounds(80, "30px", "30%", "60%"); 
+  var x = chart.addCategoryAxis("x", "{{ pr.x }}");
+  x.addOrderRule("item");
+  chart.addMeasureAxis("y", "{{ pr.y }}");
+  chart.addMeasureAxis("p", "{{ pr.y }}");
+  var pies = chart.addSeries("item", dimple.plot.pie);
+  pies.radius = 12;
+  chart.addLegend(140, 10, 360, 20, "right");
+  chart.draw();
+  </script>
+</div>

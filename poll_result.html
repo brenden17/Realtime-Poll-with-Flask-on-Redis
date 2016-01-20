@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ path }}</title>
+</head>
+<body>
+  <h2>Poll Result</h2>
+  {{ poll_analytics(items=[('windows', 'Windows'),
+                            ('linux', 'Linux'),
+                            ('os-x', 'OS X')],
+                    poll_name='OS',
+                    graph='pie') }}
+
+
+  {{ poll_analytics(items=[('windows', 'Windows'),
+                          ('linux', 'Linux'),
+                          ('os-x', 'OS X')],
+                    poll_name='OS',
+                    graph='bar') }}
+
+  {{ poll_analytics(items=[('windows', 'Windows'),
+                              ('linux', 'Linux'),
+                              ('os-x', 'OS X')],
+                        poll_name='OS',
+                        width='590',
+                        height='400',
+                        graph='total-pie') }}
+        
+</body>
+</html>
