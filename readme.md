@@ -1,6 +1,7 @@
 # Real Poll with redis on Flask
 
-This is Flask extension which implements Poll on page with Redis 
+This is Flask extension which implements Poll on page with Redis bitmap.
+
 
 ## Reqirements
 
@@ -32,6 +33,7 @@ Just put snippet on html page.
 ~~~
 
 * Poll Result
+
 It supports different 3 type graphs like bar, pie and total pie
 
 ~~~
@@ -52,10 +54,10 @@ It supports different 3 type graphs like bar, pie and total pie
   {{ poll_analytics(items=[('windows', 'Windows'),
                               ('linux', 'Linux'),
                               ('os-x', 'OS X')],
-                        poll_name='OS',
-                        width='590',
-                        height='400',
-                        graph='total-pie') }}
+                    poll_name='OS',
+                    width='590',
+                    height='400',
+                    graph='total-pie') }}
 
 ~~~
 
