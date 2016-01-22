@@ -1,0 +1,29 @@
+<div id="poll" class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{ pb.title }}</div>
+  <div class="panel-body">
+    <p>{{ pb.description }}</p>
+  </div>
+    <div class="list-group">
+    {% for item, caption in pb.items %}
+    <button type="button" class="list-group-item" value={{ item }}>{{ caption }}</button>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+$("button").click(function(event){
+  event.preventDefault();
+  var item = $(this).val();
+  
+  $.ajax({
+    type: "POST",
+    url: "/poll",
+    data: {item:item, name:"{{ pb.poll_name }}"},
+    datatype:'json',
+    success: function(data) {
+      $(".panel").html("Thanks you very much.");  
+    }
+  });
+}); 
+</script>

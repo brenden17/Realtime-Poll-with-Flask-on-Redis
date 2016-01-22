@@ -88,18 +88,23 @@ class PollRender(object):
                 title='',
                 description='',
                 items=[],
-                poll_name='poll-name'):
+                poll_name='poll-name',
+                poll_type='radio'):
         self.title = title
         self.description = description
         self.items = items
         self.poll_name = poll_name
+        self.poll_type = poll_type
 
     def render(self, *args, **kwargs):
         return render_template(*args, **kwargs)
 
     @property
     def html(self):
-        return Markup(self.render('PollRedis/inline.html', pb=self))
+        if self.poll_type == 'button':
+            return Markup(self.render('PollRedis/inline_button.html', pb=self))
+        else:
+            return Markup(self.render('PollRedis/inline.html', pb=self))
 
 
 def poll(*args, **kwargs):
