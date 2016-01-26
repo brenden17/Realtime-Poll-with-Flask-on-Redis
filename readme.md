@@ -61,5 +61,13 @@ It supports different 3 type graphs like bar, pie and total pie
 
 ~~~
 
+* Poll
+
+![alt text](https://github.com/brenden17/Realtime-Poll-with-Flask-on-Redis/blob/master/img/poll.png "image")
+
+* Result
+![alt text](https://github.com/brenden17/Realtime-Poll-with-Flask-on-Redis/blob/master/img/result.png "image")
+
+
 
 That's all.
