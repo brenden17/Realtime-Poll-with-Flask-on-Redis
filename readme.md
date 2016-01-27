@@ -1,4 +1,4 @@
-# Real Poll with redis on Flask
+# Realtime Poll with redis on Flask
 
 This is Flask extension which implements Poll on page with Redis bitmap.
 
