@@ -3,7 +3,7 @@
 This is Flask extension which implements Poll on page with Redis bitmap.
 
 
-## Reqirements
+## Requirements
 
 * Redis server
 * Python library
